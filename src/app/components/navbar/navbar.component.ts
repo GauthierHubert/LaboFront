@@ -49,7 +49,20 @@ export class NavbarComponent implements OnInit {
               items: [
 
               ]
-          }
+          },
+          {
+            label: 'Question',
+            items: [{
+                    label: 'New',
+                    icon: 'pi pi-search-plus',
+                    routerLink: ['/question/add']
+                },
+                {label: 'Index',
+                icon: 'pi pi-search',
+                routerLink: ['question']
+              },
+            ]
+        },
       ];
 
         let i = 0;

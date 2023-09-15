@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { LoginComponent } from '../login/login.component';
 import { MessageService } from 'primeng/api';
-import {Message} from 'primeng//api';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenDTO } from 'src/app/services/auth/token';
 import { User } from 'src/app/services/models/user';

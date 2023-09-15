@@ -4,6 +4,4 @@ export interface SmallQuestion{
 
   title : String;
   answers : Set<Answer> ;
-   goodAnswer : Answer;
-
 }
