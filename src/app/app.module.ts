@@ -9,23 +9,19 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 
-import { ButtonModule } from 'primeng/button';
-import { PasswordModule } from 'primeng/password';
-import { InputTextModule } from 'primeng/inputtext';
-
-import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
-import { MessageService } from 'primeng/api';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProfilComponent } from './components/profil/profil.component';
-import {SlideMenuModule} from 'primeng/slidemenu';
-import {MenuItem} from 'primeng/api';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
+
+import { QuestionComponent } from './question/question.component';
+
+import { CommonModule } from '@angular/common';
+import { SharedModule } from './utils/shared/shared.module';
+
+
+
 
 @NgModule({
   declarations: [
@@ -37,27 +33,19 @@ import {MessageModule} from 'primeng/message';
     HomeComponent,
     NotfoundComponent,
     ProfilComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ButtonModule,
-    DynamicDialogModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
     HttpClientModule,
-    PasswordModule,
-    InputTextModule,
-    SlideMenuModule,
-    MessageModule,
-    MessagesModule
+    SharedModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    DialogService,
-    MessageService
   ],
   bootstrap: [AppComponent]
 })
