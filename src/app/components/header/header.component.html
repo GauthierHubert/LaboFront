@@ -1,0 +1,23 @@
+<div class="flex flex-row pt-4 items-center">
+  <div class="ml-4 flex flex-row justify-center items-center">
+    <i class="pi pi-user mr-2" style="font-size: 2rem"></i>
+    <div *ngIf="storedUser">
+      <p>{{storedUser.username}}</p>
+      <p>Rank : 0</p>
+    </div>
+    <div *ngIf="!storedUser">
+      <p>Invité38249</p>
+      <p>Rank : Invité</p>
+    </div>
+  </div>
+  <div class="flex-1"></div>
+  <h1 class="ml-2">Quizzy</h1>
+  <div class="flex-1"></div>
+  <div class="mr-4">
+    <p-button *ngIf="!storedUser" styleClass=" mr-2 p-button-rounded p-button-secondary p-button-text p-button-raised"
+      icon="pi pi-sign-in" (onClick)="show()" class="mr-2"></p-button>
+    <p-button *ngIf="storedUser" styleClass="p-button-rounded  p-button-danger p-button-text p-button-raised"
+      icon="pi pi-sign-out" (onClick)="logout()" class="mr-2"></p-button>
+  </div>
+
+</div>

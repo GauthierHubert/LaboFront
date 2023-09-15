@@ -1,0 +1,13 @@
+<div class="navbar">
+  <div class="mt-10 ml-4">
+    <p-slideMenu [model]="items"></p-slideMenu>
+  </div>
+  <div *ngFor="let type of mapDifficulties | keyvalue">
+    {{ type.key}}
+    <ul>
+      <li *ngFor="let difficulty of type.value">
+        {{ difficulty.name }}
+      </li>
+    </ul>
+  </div>
+</div>
