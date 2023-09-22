@@ -38,7 +38,6 @@ export class HeaderComponent {
 
   show() {
     this.ref = this.dialogService.open(LoginComponent, {
-      header: 'Connection',
       width: '30%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000

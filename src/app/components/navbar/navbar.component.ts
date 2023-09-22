@@ -8,6 +8,8 @@ import { Difficulty } from 'src/app/services/models/difficulty';
 import { Type } from 'src/app/services/models/type';
 import { QuizzService } from 'src/app/services/quizz/quizz.service';
 import { User } from 'src/app/services/models/user';
+import { Quizz } from 'src/app/services/models/quizz';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,12 +19,13 @@ import { User } from 'src/app/services/models/user';
 export class NavbarComponent implements OnInit {
   isDisplay : boolean = true;
   storedUser ?: User;
+  storedQuizz ?: Quizz;
 
   items !: MenuItem[];
 
   mapDifficulties !: Map<String, Set<Difficulty>>;
 
-  constructor(private _dataService : DataService, private _authService : AuthService, private _difficultyService : DifficultyService, private _quizzService : QuizzService){
+  constructor(private _dataService : DataService, private _authService : AuthService, private _difficultyService : DifficultyService, private _quizzService : QuizzService, private _router : Router){
 
   }
 
@@ -40,7 +43,7 @@ export class NavbarComponent implements OnInit {
                   },
                   {label: 'Index',
                   icon: 'pi pi-users',
-                  routerLink: ['user']
+                  routerLink: ['user/index']
                 },
               ]
           },
@@ -78,9 +81,10 @@ export class NavbarComponent implements OnInit {
           // Itérer sur les éléments du set et les ajouter comme sous-éléments
           value.forEach((difficulty) => {
             const subItem : MenuItem = {
-              label: difficulty.name.toString(),
-              command : e => this._quizzService.createQuizz(difficulty)
 
+              label: difficulty.name.toString(),
+
+              command :e => this.createRouterLink(difficulty, subItem),
             };
             newItem.items.push(subItem); // Ajouter le sous-élément à la liste des sous-éléments
           });
@@ -112,6 +116,14 @@ export class NavbarComponent implements OnInit {
       this.isDisplay=false;
       this._dataService.updateVariable(this.isDisplay);
     }
+  }
+
+  createRouterLink(difficulty : Difficulty, subItem : MenuItem){
+    this._quizzService.createQuizz(difficulty).subscribe((result) => {
+      this.storedQuizz = result;
+
+      this._router.navigateByUrl(`quizz/${this.storedQuizz.id}`)
+    })
   }
 
 }

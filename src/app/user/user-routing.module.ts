@@ -4,12 +4,12 @@ import { AddComponent } from './add/add.component';
 import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
-  {path : 'add', component : AddComponent},
-  {path : 'index', component : IndexComponent},
+  { path : 'add',  component : AddComponent},
+  { path : 'index', component: IndexComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class QuestionRoutingModule { }
+export class UserRoutingModule { }

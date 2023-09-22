@@ -11,7 +11,7 @@ import { TypeService } from 'src/app/services/type/type.service';
 })
 export class AddComponent implements OnInit{
   questionForm : FormGroup
-  types !: Set<Type>;
+  types !: Type[];
 
   constructor(private _fb : FormBuilder, private _questionServce : QuestionService, private _typeService : TypeService){
 
@@ -32,7 +32,7 @@ export class AddComponent implements OnInit{
   ngOnInit(): void {
       this._typeService.$types.subscribe({
         next : (result : Set<Type>) => {
-          this.types = result
+          this.types = Array.from(result);
           console.log(this.types);
 
         }

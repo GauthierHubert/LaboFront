@@ -1,7 +1,7 @@
-<div class="flex justify-center flex-col items-center">
-
+<div *ngIf="isRegister" class="flex justify-center flex-col items-center">
+  <h2>Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="login()" class="flex flex-col items-center">
-    <span class="p-float-label mb-6 mt-4">
+    <span class="p-float-label mb-6 mt-6">
       <input type="text" pInputText formControlName="username" class="h-100">
       <label for="username">Username</label>
     </span>
@@ -10,7 +10,32 @@
       <p-password formControlName="password" [feedback]="false"></p-password>
       <label for="password">Password</label>
     </span>
-    <p-button type="submit" label="Se connecter"
-      styleClass="p-button-raised p-button-text p-button-secondary"></p-button>
+    <a class="mb-4 cursor-pointer" (click)="changePage()">No Account ? Register here</a>
+    <p-button type="submit" label="Login" styleClass="p-button-raised p-button-text p-button-secondary"></p-button>
+  </form>
+</div>
+
+<div *ngIf="!isRegister" class="flex justify-center flex-col items-center">
+  <h2>Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="register()" class="flex flex-col items-center">
+    <span class="p-float-label mb-6 mt-6">
+      <input type="text" pInputText formControlName="username" class="h-100">
+      <label for="username">Username</label>
+    </span>
+    <span class="p-float-label mb-6">
+      <input type="text" pInputText formControlName="email" class="h-100">
+      <label for="username">Email</label>
+    </span>
+
+    <span class=" p-float-label mb-6">
+      <p-password formControlName="password" [feedback]="false"></p-password>
+      <label for="password">Password</label>
+    </span>
+    <span class=" p-float-label mb-4">
+      <p-password [feedback]="false"></p-password>
+      <label for="password">Confirm password</label>
+    </span>
+    <a class="mb-4 cursor-pointer" (click)="changePage()">Already have an account ?</a>
+    <p-button type="submit" label="Register" styleClass="p-button-raised p-button-text p-button-secondary"></p-button>
   </form>
 </div>

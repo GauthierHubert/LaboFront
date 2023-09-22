@@ -15,7 +15,7 @@ export class QuizzService{
 
   readonly URL : string = "http://localhost:8080"
   private storedUser !: User;
-  private $quizz !: Observable<Quizz>;
+  $quizz !: Observable<Quizz>;
 
   constructor(private _http : HttpClient, private _authService : AuthService) {
     this._authService.$auth.subscribe({

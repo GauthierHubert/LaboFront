@@ -3,14 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProfilComponent } from './components/profil/profil.component';
-import { QuestionComponent } from './question/question.component';
+import { AddComponent } from './question/add/add.component';
 import { QuizzComponent } from './quizz/quizz.component';
 
 const routes: Routes = [
   { path : '', component : HomeComponent},
-  { path : 'quizz', component : QuizzComponent, loadChildren : () => import("./quizz/quizz.module").then((m) => m.QuizzModule)},
-  { path : 'question', component : QuestionComponent, loadChildren : () =>import("./question/question.module").then((m) => m.QuestionModule)},
+  { path : 'quizz/:id', component : QuizzComponent},
   { path : 'profil', component : ProfilComponent},
+  { path : 'question', loadChildren: () => import('./question/question.module').then (m => m.QuestionModule)},
+  { path : 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
 
   { path : '404notfound', component : NotfoundComponent },
   // ! A mettre en dernier

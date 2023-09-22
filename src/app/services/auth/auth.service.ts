@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { UserRole } from '../models/user';
 import { Login } from './login';
+import { Register } from './register';
 import { TokenDTO } from './token';
 
 @Injectable({
@@ -15,7 +17,7 @@ export class AuthService {
   = new BehaviorSubject<TokenDTO | undefined>(undefined)
 
   constructor(private _http: HttpClient) {
-
+    this._authTokenSubject = new BehaviorSubject<TokenDTO | undefined>(this.auth)
   }
 
    login(login: Login): Observable<TokenDTO> {
@@ -30,6 +32,11 @@ export class AuthService {
   logout() : void {
       this._authTokenSubject = new BehaviorSubject<TokenDTO | undefined>(undefined)
       sessionStorage.removeItem(this.AUTH_KEY);
+  }
+
+  register(register : Register): Observable<number> {
+    register.role = UserRole.User;
+    return this._http.post<number>(this.URL + "/user", register)
   }
 
   get auth() : TokenDTO | undefined {

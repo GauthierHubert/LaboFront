@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -15,25 +14,25 @@ import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProfilComponent } from './components/profil/profil.component';
 
-import { QuestionComponent } from './question/question.component';
 
-import { CommonModule } from '@angular/common';
 import { SharedModule } from './utils/shared/shared.module';
 
-
-
+import { DialogService } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
+import { AddComponent } from './question/add/add.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent,
     HeaderComponent,
     HomeComponent,
     NotfoundComponent,
+    AddComponent,
     ProfilComponent,
-    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -42,10 +41,14 @@ import { SharedModule } from './utils/shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedModule
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    DialogService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

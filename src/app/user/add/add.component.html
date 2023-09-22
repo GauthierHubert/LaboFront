@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="flex justify-center flex-col items-center">
+    <h2>Add User</h2>
+    <form [formGroup]="userForm" (ngSubmit)="addUser()" class="flex flex-col items-center">
+      <span class="p-float-label mb-6 mt-6">
+        <input type="text" pInputText formControlName="username" class="h-100">
+        <label for="username">Username</label>
+      </span>
+      <span class="p-float-label mb-6">
+        <input type="text" pInputText formControlName="email" class="h-100">
+        <label for="username">Email</label>
+      </span>
+
+      <div class="mb-6">
+        <p-dropdown formControlName="role" [options]="roles"></p-dropdown>
+      </div>
+
+      <span class=" p-float-label mb-6">
+        <p-password formControlName="password" [feedback]="false"></p-password>
+        <label for="password">Password</label>
+      </span>
+
+      <span class=" p-float-label mb-4">
+        <p-password [feedback]="false"></p-password>
+        <label for="password">Confirm password</label>
+      </span>
+
+      <p-button type="submit" label="Add" styleClass="p-button-raised p-button-text p-button-secondary"></p-button>
+    </form>
+  </div>
+</div>
