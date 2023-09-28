@@ -1,1 +1,42 @@
-<p>index works!</p>
+
+<div class="container">
+    <div class="flex flex-row">
+        <div class="w-20 flex items-center">
+            <p>ID</p>
+        </div>
+        <div class="w-40 flex items-center">
+            <p>Username</p>
+        </div>
+        <div class="w-40 flex items-center">
+            <p>Role</p>
+        </div>
+        <div class="w-20 flex items-center">
+            <p>Rank</p>
+        </div>
+        <div class="w-20">
+
+        </div>
+    </div>
+    <div *ngFor="let user of listUser" class="flex flex-row ">
+            <div class="flex flex-row">
+                <div class="w-20 flex items-center">
+                    <p>{{user.id}}</p>
+                </div>
+                <div class="w-40 flex items-center">
+                    <p>{{user.username}}</p>
+                </div>
+                <div class="w-40 flex items-center">
+                    <p *ngFor="let role of user.roles">
+                        {{role}}
+                    </p>
+                </div>
+                <div class="w-20 flex items-center">
+                    {{user.rank}}
+                </div>
+            </div>
+            <div class="w-20 flex flex-row">
+                <p-button icon="pi pi-user-edit" styleClass="p-button-rounded p-button-secondary  p-button-outlined"></p-button>
+                <p-button icon="pi pi-times" styleClass="p-button-rounded p-button-danger  p-button-outlined" (onClick)="deleteUser(user)"></p-button>
+            </div>
+    </div>
+</div>

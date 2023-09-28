@@ -22,6 +22,7 @@ import { MessageService } from 'primeng/api';
 import { AddComponent } from './question/add/add.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { QuizzComponent } from './quizz/quizz.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     HomeComponent,
     NotfoundComponent,
     AddComponent,
+    QuizzComponent,
     ProfilComponent,
   ],
   imports: [

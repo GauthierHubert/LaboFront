@@ -17,7 +17,7 @@ export class AuthService {
   = new BehaviorSubject<TokenDTO | undefined>(undefined)
 
   constructor(private _http: HttpClient) {
-    this._authTokenSubject = new BehaviorSubject<TokenDTO | undefined>(this.auth)
+    this._authTokenSubject.next(this.auth)
   }
 
    login(login: Login): Observable<TokenDTO> {
@@ -30,8 +30,8 @@ export class AuthService {
   }
 
   logout() : void {
-      this._authTokenSubject = new BehaviorSubject<TokenDTO | undefined>(undefined)
       sessionStorage.removeItem(this.AUTH_KEY);
+      this._authTokenSubject.next(undefined)
   }
 
   register(register : Register): Observable<number> {

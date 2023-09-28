@@ -11,8 +11,8 @@
         <label for="username">Email</label>
       </span>
 
-      <div class="mb-6">
-        <p-dropdown formControlName="role" [options]="roles"></p-dropdown>
+      <div class="mb-6 ">
+        <p-multiSelect [options]="roles" formControlName="roles" optionLabel="Roles" [filter]="false"></p-multiSelect>
       </div>
 
       <span class=" p-float-label mb-6">

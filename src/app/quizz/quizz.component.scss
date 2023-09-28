@@ -1,0 +1,111 @@
+h2 {
+    width: 20vw;
+    text-align: center;
+    
+}
+
+button {
+    width: 20vw;
+    margin : 1rem 0;
+    position: relative;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+    padding: 1rem 3rem;
+    transition: 0.2s;
+    border: #121212 solid 1px;
+  }
+  
+  button:hover {
+    letter-spacing: 0.2rem;
+    padding: 1.1rem 3.1rem;
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+    border: none;
+  }
+
+.flip-card {
+    background-color: transparent;
+    width: 20vw;
+    height: 20vh;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: #d88686;
+    color: rgb(0, 0, 0);
+    transform: rotateY(180deg);
+  } 
+
+  .inside-card {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progressing{
+    position: relative;
+    margin-top: 2rem;
+    width: 20vw;
+    height: 3vh;
+    text-align: center;
+    border: solid black 1px;
+  }
+  .bar{
+    position: absolute;
+    display: block;
+    top:0;
+    left: 0;
+    height: 3vh;
+    background-color: gray;
+    z-index: -1;
+  }
+
+  .answer {
+    width: 80rem;
+  }
+  
+  .mainquizz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .questionquizz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }

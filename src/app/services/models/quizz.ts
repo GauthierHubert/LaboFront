@@ -7,7 +7,7 @@ export interface Quizz {
   id : number;
   date : Date;
   goodAnswer : number;
-  questionList : Set<SmallQuestion> ;
+  questionList : Array<SmallQuestion>;
   userAnswers : Set<String>;
   difficulty : Difficulty ;
   user : User;

@@ -1,11 +1,14 @@
 <div class="flex flex-row pt-4 items-center">
-  <div class="ml-4 flex flex-row justify-center items-center absolute">
-    <i class="pi pi-user mr-2 mt-2" style="font-size: 2rem"></i>
-    <div *ngIf="storedUser">
+  <div class="ml-4 flex flex-row justify-center items-center absolute" *ngIf="storedUser">
+    <i class="pi pi-user mr-2 mt-2" style="font-size: 2rem" routerLink="profil"></i>
+    <div >
       <p>{{storedUser.username}}</p>
-      <p>Rank : 0</p>
+      <p>Rank : {{storedUser.rank}}</p>
     </div>
-    <div *ngIf="!storedUser">
+</div>
+<div class="ml-4 flex flex-row justify-center items-center absolute" *ngIf="storedUser === undefined">
+    <i class="pi pi-user mr-2 mt-2" style="font-size: 2rem"></i>
+    <div *ngIf="storedUser === undefined">
       <p>Invité38249</p>
       <p>Rank : Invité</p>
     </div>

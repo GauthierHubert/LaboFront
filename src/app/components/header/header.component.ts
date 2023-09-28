@@ -22,18 +22,13 @@ export class HeaderComponent {
   ngOnInit(){
     this._authService.$auth.subscribe({
       next : (result : TokenDTO | undefined) =>{
-        if(result){
-          this.storedUser = result.user;
-        }
+          this.storedUser = result?.user;
       }
-    }
-      )
+    })
   }
 
   logout(){
-    this.storedUser = undefined;
     this._authService.logout();
-    location.reload();
   }
 
   show() {

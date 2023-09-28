@@ -19,4 +19,10 @@ export class UserService {
    addUser(user : User) : Observable<User> {
     return this._http.post<User>(this.URL+ "/user", user)
    }
+   getUsers() : Observable<Set<User>>{
+    return this._http.get<Set<User>>(this.URL+ "/user/all");
+   }
+   deleteUser(user : User) : void {
+    this._http.delete(this.URL + "/user/" + user.id);
+   }
 }

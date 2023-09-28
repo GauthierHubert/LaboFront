@@ -20,7 +20,7 @@ export class AddComponent implements OnInit{
       username : [null, [Validators.required]],
       email : [null, [Validators.required]],
       password : [null, [Validators.required]],
-      role : [null, [Validators.required]]
+      roles : this._fb.array([], [Validators.required])
     })
   }
 

@@ -3,7 +3,7 @@ export interface User {
   username : string,
   email : string,
   rank : number,
-  role : UserRole
+  roles : UserRole[]
 }
 
 export enum UserRole{

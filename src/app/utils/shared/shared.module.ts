@@ -9,9 +9,11 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 
+import { MultiSelectModule } from 'primeng/multiselect';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
-
+import { PaginatorModule } from 'primeng/paginator';
+import { TableModule } from 'primeng/table';
 
 const PRIME_NG_EXPORTS = [
   PasswordModule,
@@ -21,7 +23,10 @@ const PRIME_NG_EXPORTS = [
   SlideMenuModule,
   DropdownModule,
   InputTextareaModule,
-  InputSwitchModule
+  InputSwitchModule,
+  MultiSelectModule,
+  PaginatorModule,
+  TableModule
 ]
 
 @NgModule({

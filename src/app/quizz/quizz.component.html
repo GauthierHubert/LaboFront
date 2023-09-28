@@ -1,1 +1,34 @@
-<p>quizz works!</p>
+<div class="mainquizz">
+    <h2>{{quizz.difficulty.type.name}} {{quizz.difficulty.name}}</h2>
+    <div *ngFor="let question of quizz.questionList; index as i">
+        <div *ngIf="i == indexNumber" class="questionquizz">
+            <p class="progressing">
+                <span class="bar" #loadingBar></span>
+                {{i+1}}/{{quizz.questionList.length}}  
+            </p>
+            <div class="flip-card mb-5 mt-10" >
+                <div class="flip-card-inner" #questionid>
+                  <div class="flip-card-front flex flex-col item-center justify-center">
+                    <h3>Question title</h3>
+                    <div class="inside-card">
+                        <p>{{question.title}}</p>
+                    </div>
+                  </div>
+                  <div class="flip-card-back flex flex-col item-center justify-center">
+                    <h3>Question explication</h3>
+                    <div class="inside-card">
+                        <p>{{question.explication}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+            
+            <div class="flex flex-col">
+                <button class="answer" style="--clr:#000000" *ngFor="let answer of question.answers, index as ai" (click)="validateAnswer(answer, i, ai)" #answerid>{{answer.title}}</button>
+            </div>
+        </div>
+        <div *ngIf="i+1 == quizz.questionList.length">
+            <p>Test fin</p>
+        </div>
+    </div>
+</div>
